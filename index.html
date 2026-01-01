@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Habit - Retail Billing App</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* 3D Perspective Utilities */
+        .perspective-1000 { perspective: 1000px; }
+        .rotate-y-12 { transform: rotateY(12deg) rotateX(6deg); }
+        .group:hover .rotate-y-0 { transform: rotateY(0deg) rotateX(0deg); }
+        
+        /* Smooth hover transition */
+        .phone-mockup { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    </style>
+</head>
+<body class="bg-white text-slate-900 overflow-x-hidden selection:bg-blue-100 selection:text-blue-900 antialiased">
+
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-50 rounded-full blur-[80px] md:blur-[100px] opacity-40"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-indigo-50 rounded-full blur-[80px] md:blur-[100px] opacity-40"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform">
+                    <i data-lucide="store" class="w-5 h-5"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight text-slate-900">Billing Habit</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#features" class="hover:text-blue-600 transition-colors">Features</a>
+                <a href="#how-it-works" class="hover:text-blue-600 transition-colors">How it Works</a>
+                
+                <a href="https://billinghabit.vercel.app/" target="_blank" class="bg-slate-900 text-white hover:bg-slate-800 px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Launch Web App
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white pt-24 px-6 hidden md:hidden animate-[fadeIn_0.2s_ease-out]">
+        <div class="flex flex-col gap-6 text-xl font-bold text-slate-800">
+            <a href="#features" onclick="toggleMenu()" class="block py-2 border-b border-slate-100">Features</a>
+            <a href="#how-it-works" onclick="toggleMenu()" class="block py-2 border-b border-slate-100">How It Works</a>
+            <a href="https://billinghabit.vercel.app/" target="_blank" class="mt-4 w-full py-4 bg-blue-600 text-white rounded-xl shadow-lg flex items-center justify-center gap-2">
+                Launch App Now <i data-lucide="external-link" class="w-5 h-5"></i>
+            </a>
+        </div>
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 p-2 text-slate-500">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 z-10">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="text-center lg:text-left relative z-20">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                    Indus App Store Exclusive
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+                    Retail Billing <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Reimagined.</span>
+                </h1>
+                
+                <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium">
+                    The only app that mirrors your shop's racks digitally. Switch between Retail & Wholesale prices in a single click. 
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                    
+                    <a target="_blank" class="group w-full sm:w-auto bg-black text-white px-6 py-3 rounded-xl flex items-center gap-3 shadow-xl hover:bg-slate-800 transition-all transform hover:-translate-y-1 cursor-pointer">
+                        <div class="text-orange-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase font-bold tracking-wider opacity-80">Available on</div>
+                            <div class="text-lg font-bold leading-none">Indus App Store</div>
+                        </div>
+                    </a>
+
+                    <a href="https://billinghabit.vercel.app/" target="_blank" class="w-full sm:w-auto h-14 px-8 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <i data-lucide="globe" class="w-5 h-5 text-slate-400"></i>
+                        Open Website
+                    </a>
+                </div>
+                
+                <div class="mt-6 flex items-center justify-center lg:justify-start gap-4 text-sm text-slate-500 font-medium">
+                    <div class="flex items-center gap-1"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> Free Trial</div>
+                    <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+                    <div>Works Offline</div>
+                </div>
+            </div>
+
+            <div class="relative mt-12 lg:mt-0 perspective-1000 group hidden md:block">
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-200 to-indigo-200 blur-[80px] rounded-full transform scale-75 opacity-50"></div>
+                
+                <div class="phone-mockup relative mx-auto w-[300px] h-[600px] bg-slate-900 rounded-[3.5rem] border-8 border-slate-800 shadow-2xl rotate-y-12 overflow-hidden ring-4 ring-slate-900/10 hover:rotate-y-0">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
+                    
+                    <div class="w-full h-full bg-slate-50 p-5 pt-14 text-slate-900 relative flex flex-col font-sans">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Dashboard</div>
+                            <div class="bg-white p-2 rounded-full shadow-sm"><i data-lucide="store" class="w-4 h-4 text-blue-600"></i></div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 mb-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-slate-500 text-xs font-semibold uppercase">Today's Profit</div>
+                                <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] font-bold">+12%</span>
+                            </div>
+                            <div class="text-3xl font-bold text-slate-900">₹ 8,450</div>
+                            <div class="mt-2 flex items-center gap-1 text-[10px] font-bold text-indigo-600 bg-indigo-50 w-max px-2 py-0.5 rounded">
+                                <i data-lucide="refresh-cw" class="w-3 h-3"></i> Wholesale Active
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 flex-1 overflow-hidden">
+                             <div class="text-xs font-bold text-slate-400 uppercase">Recent Bills</div>
+                             
+                             <div class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-100 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 font-bold">#101</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-800">Rishabh G.</div>
+                                        <div class="text-xs text-slate-400">Paid • UPI</div>
+                                    </div>
+                                </div>
+                                <div class="text-slate-900 font-bold text-sm">₹1,250</div>
+                             </div>
+
+                             <div class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-100 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold">#102</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-800">Amit Store</div>
+                                        <div class="text-xs text-slate-400">Credit</div>
+                                    </div>
+                                </div>
+                                <div class="text-slate-900 font-bold text-sm">₹4,500</div>
+                             </div>
+                        </div>
+
+                        <div class="mt-auto w-full h-14 bg-slate-900 text-white rounded-xl font-bold shadow-lg flex items-center justify-center">
+                            + Create New Bill
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-y border-slate-100 bg-slate-50 py-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-400 text-sm font-bold uppercase tracking-wider mb-6">Trusted by Shop Owners in India</p>
+            <div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale">
+                <span class="text-lg font-bold text-slate-700 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-5 h-5"></i> CITY MART</span>
+                <span class="text-lg font-bold text-slate-700 flex items-center gap-2"><i data-lucide="shopping-cart" class="w-5 h-5"></i> RK TRADERS</span>
+                <span class="text-lg font-bold text-slate-700 flex items-center gap-2"><i data-lucide="star" class="w-5 h-5"></i> SAI GENERAL</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Why Shop Owners Love It</h2>
+                <p class="text-slate-500 text-lg max-w-2xl mx-auto">Built specifically for the Indian retail market, addressing the real problems of daily billing.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 text-indigo-600">
+                        <i data-lucide="refresh-cw" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">1-Click Wholesale</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Got a bulk buyer? Toggle the entire bill to Wholesale prices instantly. Your profit margins adjust automatically in the background.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
+                        <i data-lucide="layers" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Digital Racks</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Organize the app exactly like your shop. "Rack A > Shelf 2". Find items by where they are placed, speeding up billing by 3x.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
+                        <i data-lucide="wifi-off" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">100% Offline Capable</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Internet down? No problem. Billing Habit stores data locally and syncs when you are back online. Never stop selling.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center text-3xl font-extrabold text-slate-900 mb-16">Setup in 3 Minutes</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
+                
+                <div class="bg-white p-6 pt-12 relative text-center border border-slate-100 rounded-2xl shadow-sm">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold z-10 text-xl shadow-lg shadow-blue-200">1</div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">Create Racks</h3>
+                    <p class="text-slate-500">Name your digital categories to match your shop's physical shelves.</p>
+                </div>
+
+                <div class="bg-white p-6 pt-12 relative text-center border border-slate-100 rounded-2xl shadow-sm">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold z-10 text-xl shadow-lg shadow-blue-200">2</div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">Add Items</h3>
+                    <p class="text-slate-500">Input Retail, Wholesale, and Cost prices for your inventory.</p>
+                </div>
+
+                <div class="bg-white p-6 pt-12 relative text-center border border-slate-100 rounded-2xl shadow-sm">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold z-10 text-xl shadow-lg shadow-blue-200">3</div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">Start Billing</h3>
+                    <p class="text-slate-500">Tap items to create bills. Toggle wholesale mode instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-200 py-12 px-6 bg-white text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 text-slate-900 font-bold text-lg mb-4">
+                    <i data-lucide="store" class="w-5 h-5 text-blue-600"></i> Billing Habit
+                </div>
+                <p class="max-w-xs leading-relaxed">The fastest billing solution for modern Indian retailers. Built with ❤️ in Jabalpur.</p>
+            </div>
+            <div>
+                <h4 class="text-slate-900 font-bold mb-4">Product</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-blue-600">Features</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-slate-900 font-bold mb-4">Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://billinghabit.vercel.app/legal" class="hover:text-blue-600">Contact Us</a></li>
+                    <li><a href="https://billinghabit.vercel.app/legal" class="hover:text-blue-600">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-100 text-center text-slate-400">
+            © 2026 Billing Habit. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
